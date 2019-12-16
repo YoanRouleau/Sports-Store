@@ -12,12 +12,15 @@ namespace Sports_Store
         private int id;
         private String name;
         private Double price;
+        private String category;
 
-        public Item(int pId, String pName, Double pPrice)
+
+        public Item(int pId, String pName, Double pPrice, String pCategory)
         {
             this.Id = pId;
             this.Name = pName;
             this.Price = pPrice;
+            this.Category = pCategory;
         }
 
 
@@ -39,6 +42,11 @@ namespace Sports_Store
             set { price = value; }
         }
 
+        public String Category
+        {
+            get { return category; }
+            set { category = value; }
+        }
 
 
     }
