@@ -52,6 +52,7 @@ namespace Sports_Store
         private void btnEditOrder_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         private void btnGoBack_Click(object sender, EventArgs e)
@@ -59,11 +60,57 @@ namespace Sports_Store
             this.Close();
         }
 
+
+        private void rbtnHomeDelivery_CheckedChanged(object sender, EventArgs e)
+        {
+            gbHomeDelivery.Visible = true;
+            gbInShop.Visible = false;
+        }
+
+        private void rbtnInShopDelivery_CheckedChanged(object sender, EventArgs e)
+        {
+            gbInShop.Visible = true;
+            gbHomeDelivery.Visible = false;
+        }
+       
+
+        private void btnPayInShop_Click(object sender, EventArgs e)
+        {
+            Order ord = new Order(new Random().Next(10000, 99999), DateTime.Today, myBasket.basketToCheckout,
+                myBasket.basketToCheckout.Sum(Item => Item.Price), txtFirstNameInShop.Text, txtLastNameInShop.Text);
+
+            MessageBox.Show("Since there's no way of simulating a payment system, we're just going to imagine that the customer's " +
+                "payment has been accepted. :)");
+
+            Payment toPayment = new Payment(ord);
+            toPayment.ShowDialog();
+        }
+
+
+        private void btnPayDelivery_Click(object sender, EventArgs e)
+        {
+            Order ord = new Order(new Random().Next(10000, 99999), DateTime.Today, dtpDeliveryDate.Value, myBasket.basketToCheckout,
+                myBasket.basketToCheckout.Sum(Item => Item.Price), txtFirstNameDelivery.Text, txtLastNameDelivery.Text, 
+                txtAddressDelivery.Text, txtPCDelivery.Text, txtCityDelivery.Text);
+
+            MessageBox.Show("Since there's no way of simulating a payment system, we're just going to imagine that the customer's " +
+                "payment has been accepted. :)");
+
+            Payment toPayment = new Payment(ord);
+            toPayment.ShowDialog();
+        }
+        
+        //USELESS
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        
+        //USELESS
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

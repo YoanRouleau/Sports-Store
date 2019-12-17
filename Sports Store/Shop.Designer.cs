@@ -38,6 +38,8 @@
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.dgvBasket = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
@@ -49,6 +51,7 @@
             this.itemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBasket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource2)).BeginInit();
@@ -77,7 +80,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(960, 139);
+            this.label3.ForeColor = System.Drawing.Color.DarkRed;
+            this.label3.Location = new System.Drawing.Point(1176, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 29);
             this.label3.TabIndex = 6;
@@ -157,11 +161,30 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(182, 139);
+            this.label2.Location = new System.Drawing.Point(436, 139);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 29);
+            this.label2.Size = new System.Drawing.Size(220, 29);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Brows our wares";
+            this.label2.Text = "Season\'s collection";
+            // 
+            // label5
+            // 
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Location = new System.Drawing.Point(36, 109);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(1415, 2);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "label5";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Sports_Store.Properties.Resources.Sport_2000_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(640, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(369, 73);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // nameDataGridViewTextBoxColumn1
             // 
@@ -222,7 +245,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1479, 616);
+            this.ClientSize = new System.Drawing.Size(1488, 616);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvBasket);
             this.Controls.Add(this.btnCheckOut);
@@ -237,6 +262,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBasket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource2)).EndInit();
@@ -265,6 +291,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

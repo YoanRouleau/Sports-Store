@@ -164,8 +164,13 @@ namespace Sports_Store
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            CheckOut toCheckOut = new CheckOut(myBasket);
-            toCheckOut.ShowDialog();
+            if (myBasket.basketToCheckout.Any())
+            {
+                CheckOut toCheckOut = new CheckOut(myBasket);
+                toCheckOut.ShowDialog();
+            }
+            else
+                MessageBox.Show("Your Basket is Empty. Add item in it first to go further.");
         }
 
         private void dgvBasket_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -214,6 +219,10 @@ namespace Sports_Store
 
         }
 
-        
+        //USELESS
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
