@@ -38,6 +38,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtThankYou = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnOpenReceipt = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +69,7 @@
             // 
             // rtbItemList
             // 
+            this.rtbItemList.BackColor = System.Drawing.Color.White;
             this.rtbItemList.Location = new System.Drawing.Point(72, 322);
             this.rtbItemList.Name = "rtbItemList";
             this.rtbItemList.ReadOnly = true;
@@ -141,11 +144,40 @@
             this.txtThankYou.Text = "label3";
             this.txtThankYou.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Black;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(70, 533);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(165, 46);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Go Back to Store";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnOpenReceipt
+            // 
+            this.btnOpenReceipt.BackColor = System.Drawing.Color.DarkRed;
+            this.btnOpenReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenReceipt.ForeColor = System.Drawing.Color.White;
+            this.btnOpenReceipt.Location = new System.Drawing.Point(251, 533);
+            this.btnOpenReceipt.Name = "btnOpenReceipt";
+            this.btnOpenReceipt.Size = new System.Drawing.Size(114, 46);
+            this.btnOpenReceipt.TabIndex = 9;
+            this.btnOpenReceipt.Text = "Open Receipt";
+            this.btnOpenReceipt.UseVisualStyleBackColor = false;
+            this.btnOpenReceipt.Click += new System.EventHandler(this.btnOpenReceipt_Click);
+            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 538);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(621, 603);
+            this.Controls.Add(this.btnOpenReceipt);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtThankYou);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -177,5 +209,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label txtThankYou;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnOpenReceipt;
     }
 }

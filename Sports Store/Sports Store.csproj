@@ -112,5 +112,23 @@
   <ItemGroup>
     <None Include="Resources\Sport 2000 logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sport 2000 shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sport 2000 shop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test_sport2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test2_sport2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test_sport20001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test2_sport20001.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

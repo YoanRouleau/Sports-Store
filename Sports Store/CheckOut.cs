@@ -39,7 +39,7 @@ namespace Sports_Store
 
             foreach (Item ie in myBasket.basketToCheckout)
             {
-                rtbCheckOutBasket.Text += ie.Name.ToString() + "\t" + ie.Price + "€" + "\n";
+                rtbCheckOutBasket.Text += ie.Name.ToString() + "\n";
                 totalAmount += ie.Price;
                 itemCounter++;
             }

@@ -39,7 +39,9 @@
             this.dgvBasket = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
@@ -51,7 +53,9 @@
             this.itemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBasket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource2)).BeginInit();
@@ -123,22 +127,30 @@
             // 
             // btnClearBasket
             // 
-            this.btnClearBasket.Location = new System.Drawing.Point(965, 458);
+            this.btnClearBasket.BackColor = System.Drawing.Color.Black;
+            this.btnClearBasket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearBasket.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearBasket.ForeColor = System.Drawing.Color.White;
+            this.btnClearBasket.Location = new System.Drawing.Point(1176, 458);
             this.btnClearBasket.Name = "btnClearBasket";
-            this.btnClearBasket.Size = new System.Drawing.Size(102, 48);
+            this.btnClearBasket.Size = new System.Drawing.Size(132, 64);
             this.btnClearBasket.TabIndex = 10;
             this.btnClearBasket.Text = "Clear Basket";
-            this.btnClearBasket.UseVisualStyleBackColor = true;
+            this.btnClearBasket.UseVisualStyleBackColor = false;
             this.btnClearBasket.Click += new System.EventHandler(this.btnClearBasket_Click);
             // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Location = new System.Drawing.Point(1073, 458);
+            this.btnCheckOut.BackColor = System.Drawing.Color.DarkRed;
+            this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckOut.ForeColor = System.Drawing.Color.White;
+            this.btnCheckOut.Location = new System.Drawing.Point(1330, 458);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(107, 48);
+            this.btnCheckOut.Size = new System.Drawing.Size(121, 64);
             this.btnCheckOut.TabIndex = 11;
             this.btnCheckOut.Text = "Check-out";
-            this.btnCheckOut.UseVisualStyleBackColor = true;
+            this.btnCheckOut.UseVisualStyleBackColor = false;
             this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
             // dgvBasket
@@ -176,6 +188,15 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "label5";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Sports_Store.Properties.Resources.test2_sport20001;
+            this.pictureBox3.Location = new System.Drawing.Point(460, -9);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(1102, 165);
+            this.pictureBox3.TabIndex = 18;
+            this.pictureBox3.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Sports_Store.Properties.Resources.Sport_2000_logo;
@@ -185,6 +206,15 @@
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Sports_Store.Properties.Resources.test_sport20001;
+            this.pictureBox2.Location = new System.Drawing.Point(-4, 230);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(576, 385);
+            this.pictureBox2.TabIndex = 17;
+            this.pictureBox2.TabStop = false;
             // 
             // nameDataGridViewTextBoxColumn1
             // 
@@ -245,6 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1488, 616);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
@@ -257,12 +288,16 @@
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvItemList);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox3);
             this.Name = "Shop";
             this.Text = "Total: ";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBasket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource2)).EndInit();
@@ -293,6 +328,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

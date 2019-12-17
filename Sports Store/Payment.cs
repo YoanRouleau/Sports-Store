@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +12,12 @@ using System.Windows.Forms;
 
 namespace Sports_Store
 {
+
+    
+
     public partial class Payment : Form
     {
+        public static String receiptName;
 
         // Disable X Button -------------------------------------------
         private const int CP_NOCLOSE_BUTTON = 0x200;
@@ -45,22 +51,76 @@ namespace Sports_Store
                 
 
             txtTotal.Text += order.Price + "€";
-            
+
 
             foreach(Item ie in order.OrderBasket)
             {
                 rtbItemList.Text += ie.Name + "\t" + ie.Price + "€\n";
             }
 
+            receiptName = order.Reference + "_" + order.Firstname + "_" + order.Lastname;
+
+            using (StreamWriter writer = File.CreateText(@".\" + receiptName + ".txt"))
+            {
+                try
+                {
+                    writer.WriteLine("------- SPORT 2000: ORDER RECEIPT -------");
+                    writer.WriteLine("Order n°"+ order.Reference + "        Date of order: " + order.DateOfOrder);
+                    writer.WriteLine("Buyer: " + order.Firstname + " " + order.Lastname);
+                    writer.WriteLine("Payment method:  Credit Card");
+                    writer.WriteLine("Order Price:  " + order.Price + "€");
+                    writer.WriteLine("-----------------------------------------");
+
+                    if (order.DateOfDelivery == new DateTime(0001, 01, 01))
+                    {
+                        writer.WriteLine("Address: Sport 2000");
+                        writer.WriteLine("City : Ambérieu-en-Bugey     Postcode: 01500" + "\n");
+                    }
+                    else
+                    {
+                        writer.WriteLine("Date of Delivery: " + order.DateOfDelivery.ToShortDateString());
+                        writer.WriteLine("Address: " + order.Address);
+                        writer.WriteLine("City : " + order.City + "    Postcode: " + order.Postcode + "\n");
+                    }
+
+                    writer.WriteLine("----------- ORDER COMPOSITION -----------\n");
+
+                    foreach (Item ie in order.OrderBasket)
+                    {
+                        writer.WriteLine("- " + ie.Name + "|| Price: " + ie.Price + "€");
+                    }
+
+
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show(ex.Message, "IOException");
+                }
+
+                writer.Close();
+            }
+
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Payment obj = (Payment)Application.OpenForms["Payment"];
+            obj.Close();
 
+            CheckOut obj2 = (CheckOut)Application.OpenForms["CheckOut"];
+            obj2.Close();
+        }
 
 
         //USELESS
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnOpenReceipt_Click(object sender, EventArgs e)
+        {
+            Process.Start(receiptName + ".txt");
         }
     }
 }
