@@ -76,28 +76,39 @@ namespace Sports_Store
 
         private void btnPayInShop_Click(object sender, EventArgs e)
         {
-            Order ord = new Order(new Random().Next(10000, 99999), DateTime.Today, myBasket.basketToCheckout,
+            if (txtFirstNameInShop.Text != "" && txtLastNameInShop.Text != "")
+            {
+                Order ord = new Order(new Random().Next(10000, 99999), DateTime.Today, myBasket.basketToCheckout,
                 myBasket.basketToCheckout.Sum(Item => Item.Price), txtFirstNameInShop.Text, txtLastNameInShop.Text);
 
-            MessageBox.Show("Since there's no way of simulating a payment system, we're just going to imagine that the customer's " +
-                "payment has been accepted. :)");
+                MessageBox.Show("Since there's no way of simulating a payment system, we're just going to imagine that the customer's " +
+                    "payment has been accepted. :)");
 
-            Payment toPayment = new Payment(ord);
-            toPayment.ShowDialog();
+                Payment toPayment = new Payment(ord);
+                toPayment.ShowDialog();
+            }
+            else
+                MessageBox.Show("You must fill every fields to order.");
+            
         }
 
 
         private void btnPayDelivery_Click(object sender, EventArgs e)
         {
-            Order ord = new Order(new Random().Next(10000, 99999), DateTime.Today, dtpDeliveryDate.Value, myBasket.basketToCheckout,
-                myBasket.basketToCheckout.Sum(Item => Item.Price), txtFirstNameDelivery.Text, txtLastNameDelivery.Text, 
+            if(txtFirstNameDelivery.Text != "" && txtLastNameDelivery.Text != "" && txtAddressDelivery.Text != "" && txtCityDelivery.Text != "" && txtPCDelivery.Text != "")
+            {
+                Order ord = new Order(new Random().Next(10000, 99999), DateTime.Today, dtpDeliveryDate.Value, myBasket.basketToCheckout,
+                myBasket.basketToCheckout.Sum(Item => Item.Price), txtFirstNameDelivery.Text, txtLastNameDelivery.Text,
                 txtAddressDelivery.Text, txtPCDelivery.Text, txtCityDelivery.Text);
 
-            MessageBox.Show("Since there's no way of simulating a payment system, we're just going to imagine that the customer's " +
-                "payment has been accepted. :)");
+                MessageBox.Show("Since there's no way of simulating a payment system, we're just going to imagine that the customer's " +
+                    "payment has been accepted. :)");
 
-            Payment toPayment = new Payment(ord);
-            toPayment.ShowDialog();
+                Payment toPayment = new Payment(ord);
+                toPayment.ShowDialog();
+            }
+            else
+                MessageBox.Show("You must fill every fields to order.");
         }
         
         //USELESS

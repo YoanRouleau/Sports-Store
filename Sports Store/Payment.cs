@@ -39,6 +39,7 @@ namespace Sports_Store
 
             txtThankYou.Text = "Thanks for your order " + order.Firstname + " " + order.Lastname + "!\n";
 
+            //If order IS NOT an order to DELIVER
             if (order.DateOfDelivery == new DateTime(0001, 01, 01)){
                 txtDetails.Text = "Please come and collect your order in our shop from Tomorrow (our staff will need 1 day to prepare your order)";
                 txtAddress.Text = "Sport 2000 \n01500 - Amberieu en Bugey";
@@ -60,17 +61,19 @@ namespace Sports_Store
 
             receiptName = order.Reference + "_" + order.Firstname + "_" + order.Lastname;
 
+            //All the part below is about creating the txt receipt
             using (StreamWriter writer = File.CreateText(@".\" + receiptName + ".txt"))
             {
                 try
                 {
-                    writer.WriteLine("------- SPORT 2000: ORDER RECEIPT -------");
+                    writer.WriteLine("----------- SPORT 2000: ORDER RECEIPT -----------");
                     writer.WriteLine("Order n°"+ order.Reference + "        Date of order: " + order.DateOfOrder);
                     writer.WriteLine("Buyer: " + order.Firstname + " " + order.Lastname);
                     writer.WriteLine("Payment method:  Credit Card");
                     writer.WriteLine("Order Price:  " + order.Price + "€");
-                    writer.WriteLine("-----------------------------------------");
+                    writer.WriteLine("-------------------------------------------------");
 
+                    //If order IS NOT an order to DELIVER
                     if (order.DateOfDelivery == new DateTime(0001, 01, 01))
                     {
                         writer.WriteLine("Address: Sport 2000");
@@ -83,11 +86,11 @@ namespace Sports_Store
                         writer.WriteLine("City : " + order.City + "    Postcode: " + order.Postcode + "\n");
                     }
 
-                    writer.WriteLine("----------- ORDER COMPOSITION -----------\n");
+                    writer.WriteLine("--------------- ORDER COMPOSITION ---------------\n");
 
                     foreach (Item ie in order.OrderBasket)
                     {
-                        writer.WriteLine("- " + ie.Name + "|| Price: " + ie.Price + "€");
+                        writer.WriteLine("- " + ie.Name + " || Price: " + ie.Price + "€");
                     }
 
 
@@ -102,6 +105,11 @@ namespace Sports_Store
 
         }
 
+        private void btnOpenReceipt_Click(object sender, EventArgs e)
+        {
+            Process.Start(receiptName + ".txt");
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Payment obj = (Payment)Application.OpenForms["Payment"];
@@ -112,15 +120,14 @@ namespace Sports_Store
         }
 
 
+
+
         //USELESS
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnOpenReceipt_Click(object sender, EventArgs e)
-        {
-            Process.Start(receiptName + ".txt");
-        }
+       
     }
 }
