@@ -78,6 +78,7 @@ namespace Sports_Store
 
         private void btnPayInShop_Click(object sender, EventArgs e)
         {
+
             if (txtFirstNameInShop.Text != "" && txtLastNameInShop.Text != "")
             {
                 Order ord = new Order(new Random().Next(10000, 99999), DateTime.Today, myBasket.basketToCheckout,
