@@ -13,6 +13,8 @@ namespace Sports_Store
     public partial class CheckOut : Form
     {
 
+        public static Double totalAmount;
+
         // Disable X Button -------------------------------------------
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
@@ -34,7 +36,7 @@ namespace Sports_Store
             InitializeComponent();
             myBasket = basket;
 
-            Double totalAmount = 0;
+            totalAmount = 0;
             int itemCounter = 0;
 
             foreach (Item ie in myBasket.basketToCheckout)
@@ -97,15 +99,21 @@ namespace Sports_Store
         {
             if(txtFirstNameDelivery.Text != "" && txtLastNameDelivery.Text != "" && txtAddressDelivery.Text != "" && txtCityDelivery.Text != "" && txtPCDelivery.Text != "")
             {
-                Order ord = new Order(new Random().Next(10000, 99999), DateTime.Today, dtpDeliveryDate.Value, myBasket.basketToCheckout,
-                myBasket.basketToCheckout.Sum(Item => Item.Price), txtFirstNameDelivery.Text, txtLastNameDelivery.Text,
-                txtAddressDelivery.Text, txtPCDelivery.Text, txtCityDelivery.Text);
+                //MessageBox.Show(totalAmount.ToString());
+                if (totalAmount > 500.00)
+                    MessageBox.Show("In order to get your order delivered, it must be less than 500€.");
+                else
+                { 
+                    Order ord = new Order(new Random().Next(10000, 99999), DateTime.Today, dtpDeliveryDate.Value, myBasket.basketToCheckout,
+                    myBasket.basketToCheckout.Sum(Item => Item.Price), txtFirstNameDelivery.Text, txtLastNameDelivery.Text,
+                    txtAddressDelivery.Text, txtPCDelivery.Text, txtCityDelivery.Text);
 
-                MessageBox.Show("Since there's no way of simulating a payment system, we're just going to imagine that the customer's " +
+                    MessageBox.Show("Since there's no way of simulating a payment system, we're just going to imagine that the customer's " +
                     "payment has been accepted. :)");
 
-                Payment toPayment = new Payment(ord);
-                toPayment.ShowDialog();
+                    Payment toPayment = new Payment(ord);
+                    toPayment.ShowDialog();
+                }
             }
             else
                 MessageBox.Show("You must fill every fields to order.");

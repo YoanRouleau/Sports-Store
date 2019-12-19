@@ -139,7 +139,7 @@
             this.txtThankYou.ForeColor = System.Drawing.Color.DarkRed;
             this.txtThankYou.Location = new System.Drawing.Point(71, 34);
             this.txtThankYou.Name = "txtThankYou";
-            this.txtThankYou.Size = new System.Drawing.Size(474, 23);
+            this.txtThankYou.Size = new System.Drawing.Size(474, 37);
             this.txtThankYou.TabIndex = 7;
             this.txtThankYou.Text = "label3";
             this.txtThankYou.TextAlign = System.Drawing.ContentAlignment.TopCenter;
