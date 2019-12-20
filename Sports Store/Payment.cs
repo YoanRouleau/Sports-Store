@@ -13,8 +13,6 @@ using System.Windows.Forms;
 namespace Sports_Store
 {
 
-    
-
     public partial class Payment : Form
     {
         public static String receiptName;
@@ -50,10 +48,10 @@ namespace Sports_Store
             }
 
                 
-
+            //Display the total price
             txtTotal.Text += order.Price + "€";
 
-
+            //List all the item ordered in the RichTextBox
             foreach(Item ie in order.OrderBasket)
             {
                 rtbItemList.Text += ie.Name + "\t" + ie.Price + "€\n";
@@ -62,7 +60,7 @@ namespace Sports_Store
             receiptName = order.Reference + "_" + order.Firstname + "_" + order.Lastname;
 
             //All the part below is about creating the txt receipt
-            using (StreamWriter writer = File.CreateText(@".\" + receiptName + ".txt"))
+            using (StreamWriter writer = File.CreateText(@".\Orders\" + receiptName + ".txt"))
             {
                 try
                 {
@@ -107,9 +105,11 @@ namespace Sports_Store
 
         private void btnOpenReceipt_Click(object sender, EventArgs e)
         {
-            Process.Start(receiptName + ".txt");
+            //Open the freshly generated receipt
+            Process.Start(@".\Orders\" + receiptName + ".txt");
         }
 
+        //Allow to close the PAYMENT and CHECKOUT window in order to only display the main interface
         private void btnClose_Click(object sender, EventArgs e)
         {
             Payment obj = (Payment)Application.OpenForms["Payment"];
